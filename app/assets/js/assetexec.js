@@ -1,7 +1,7 @@
 let target = require('./assetguard')[process.argv[2]]
 if(target == null){
-    process.send({context: 'error', data: null, error: 'Invalid class name'})
-    console.error('Invalid class name passed to argv[2], cannot continue.')
+    process.send({context: 'error', data: null, error: 'Nom de class invalide'})
+    console.error('Nom de classe invalide dans "argv[2]", impossible de continuer.')
     process.exit(1)
 }
 let tracker = new target(...(process.argv.splice(3)))
@@ -52,12 +52,12 @@ process.on('message', (msg) => {
                 process.send({result: res, context: func})
             }
         } else {
-            process.send({context: 'error', data: null, error: `Function ${func} not found on ${process.argv[2]}`})
+            process.send({context: 'error', data: null, error: `La fonction ${func} n'a pas été trouvée dans ${process.argv[2]}`})
         }
     } else if(msg.task === 'changeContext'){
         target = require('./assetguard')[msg.class]
         if(target == null){
-            process.send({context: 'error', data: null, error: `Invalid class ${msg.class}`})
+            process.send({context: 'error', data: null, error: `Class invalide ${msg.class}`})
         } else {
             tracker = new target(...(msg.args))
             assignListeners()

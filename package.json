@@ -1,14 +1,11 @@
 {
-  "name": "helioslauncher",
-  "version": "1.8.0",
-  "productName": "Helios Launcher",
-  "description": "Modded Minecraft Launcher",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
+  "name": "shinobispathlauncher",
+  "version": "1.0.0",
+  "productName": "Shinobi's Path - Launcher",
+  "description": "Launcher officiel de Shinobi's Path",
+  "author": "YasKiie_",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/dscalzi/HeliosLauncher",
-  "bugs": {
-    "url": "https://github.com/dscalzi/HeliosLauncher/issues"
-  },
+  "homepage": "https://github.com/Yaskie/Shinobi-sPathLauncher",
   "private": true,
   "main": "index.js",
   "scripts": {
@@ -47,6 +44,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dscalzi/HeliosLauncher.git"
+    "url": "git+https://github.com/yaskie/Shinobi-sPathLauncher.git"
   }
 }

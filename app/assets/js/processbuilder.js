@@ -59,7 +59,7 @@ class ProcessBuilder {
             args = args.concat(this.constructModList(modObj.fMods))
         }
 
-        logger.log('Launch Arguments:', args)
+        logger.log('Arguments de lancement:', args)
 
         const child = child_process.spawn(ConfigManager.getJavaExecutable(), args, {
             cwd: this.gameDir,
@@ -86,9 +86,9 @@ class ProcessBuilder {
             logger.log('Exited with code', code)
             fs.remove(tempNativePath, (err) => {
                 if(err){
-                    logger.warn('Error while deleting temp dir', err)
+                    logger.warn('Erreur lors de la supression du Temp dir.', err)
                 } else {
-                    logger.log('Temp dir deleted successfully.')
+                    logger.log('Le Temp dir a bien été supprimé.')
                 }
             })
         })
@@ -483,7 +483,7 @@ class ProcessBuilder {
                             val = args[i].replace(argDiscovery, tempNativePath)
                             break
                         case 'launcher_name':
-                            val = args[i].replace(argDiscovery, 'Helios-Launcher')
+                            val = args[i].replace(argDiscovery, 'Shinobi\'s Path Launcher')
                             break
                         case 'launcher_version':
                             val = args[i].replace(argDiscovery, this.launcherVersion)
@@ -505,13 +505,13 @@ class ProcessBuilder {
             isAutoconnectBroken = Util.isAutoconnectBroken(this.forgeData.id.split('-')[2])
         } catch(err) {
             logger.error(err)
-            logger.error('Forge version format changed.. assuming autoconnect works.')
-            logger.debug('Forge version:', this.forgeData.id)
+            logger.error('Le formation de la version de forge a changé... La connexion est tout de même fonctionnelle.')
+            logger.debug('Version de forge:', this.forgeData.id)
         }
 
         if(isAutoconnectBroken) {
-            logger.error('Server autoconnect disabled on Forge 1.15.2 for builds earlier than 31.2.15 due to OpenGL Stack Overflow issue.')
-            logger.error('Please upgrade your Forge version to at least 31.2.15!')
+            logger.error('La connexion automatique aux serveurs ne marche pas avec les versions de forge supérieurs à la 1.14')
+            logger.error('Merci de mettre à jour votre version de forge afin qu\'elle ne dépasse pas la mise à jour 31.2.15!')
         } else {
             this._processAutoConnectArg(args)
         }
@@ -723,7 +723,7 @@ class ProcessBuilder {
                         if(!shouldExclude){
                             fs.writeFile(path.join(tempNativePath, fileName), zipEntries[i].getData(), (err) => {
                                 if(err){
-                                    logger.error('Error while extracting native library:', err)
+                                    logger.error('Une erreur est survenue lors de l\'extraction des librairies:', err)
                                 }
                             })
                         }

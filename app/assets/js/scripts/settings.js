@@ -337,11 +337,11 @@ function bindAuthAccountSelect(){
             for(let i=0; i<selectBtns.length; i++){
                 if(selectBtns[i].hasAttribute('selected')){
                     selectBtns[i].removeAttribute('selected')
-                    selectBtns[i].innerHTML = 'Select Account'
+                    selectBtns[i].innerHTML = 'Seléctionner le compte'
                 }
             }
             val.setAttribute('selected', '')
-            val.innerHTML = 'Selected Account &#10004;'
+            val.innerHTML = 'Compte seléctionné &#10004;'
             setSelectedAccount(val.closest('.settingsAuthAccount').getAttribute('uuid'))
         }
     })
@@ -359,10 +359,10 @@ function bindAuthAccountLogOut(){
             if(Object.keys(ConfigManager.getAuthAccounts()).length === 1){
                 isLastAccount = true
                 setOverlayContent(
-                    'Warning<br>This is Your Last Account',
-                    'In order to use the launcher you must be logged into at least one account. You will need to login again after.<br><br>Are you sure you want to log out?',
-                    'I\'m Sure',
-                    'Cancel'
+                    'Attention<br>Ceci est votre dernier compte',
+                    'Pour utiliser le launcher vous devez être connecté à un compte minecraft premium.<br><br>Êtes-vous sur de vouloir vous déconnecter?',
+                    'Confirmer',
+                    'Annuler'
                 )
                 setOverlayHandler(() => {
                     processLogOut(val, isLastAccount)
@@ -449,7 +449,7 @@ function populateAuthAccounts(){
             <div class="settingsAuthAccountRight">
                 <div class="settingsAuthAccountDetails">
                     <div class="settingsAuthAccountDetailPane">
-                        <div class="settingsAuthAccountDetailTitle">Username</div>
+                        <div class="settingsAuthAccountDetailTitle">Nom d'utilisateur</div>
                         <div class="settingsAuthAccountDetailValue">${acc.displayName}</div>
                     </div>
                     <div class="settingsAuthAccountDetailPane">
@@ -458,9 +458,9 @@ function populateAuthAccounts(){
                     </div>
                 </div>
                 <div class="settingsAuthAccountActions">
-                    <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>Selected Account &#10004;' : '>Select Account'}</button>
+                    <button class="settingsAuthAccountSelect" ${selectedUUID === acc.uuid ? 'selected>Compte selectionné &#10004;' : '>Choisir le compte'}</button>
                     <div class="settingsAuthAccountWrapper">
-                        <button class="settingsAuthAccountLogOut">Log Out</button>
+                        <button class="settingsAuthAccountLogOut">Déconnexion</button>
                     </div>
                 </div>
             </div>
@@ -749,7 +749,7 @@ function saveDropinModConfiguration(){
                 DropinModUtil.toggleDropinMod(CACHE_SETTINGS_MODS_DIR, dropin.fullName, dropinUIEnabled).catch(err => {
                     if(!isOverlayVisible()){
                         setOverlayContent(
-                            'Failed to Toggle<br>One or More Drop-in Mods',
+                            'Une erreure est survenue: Impossible de commuter <br>un Mod ou d\'en ajouter un.',
                             err.message,
                             'Okay'
                         )
@@ -823,7 +823,7 @@ function setShadersOptions(arr, selected){
 }
 
 function saveShaderpackSettings(){
-    let sel = 'OFF'
+    let sel = 'Aucun'
     for(let opt of document.getElementById('settingsShadersOptions').childNodes){
         if(opt.hasAttribute('selected')){
             sel = opt.getAttribute('value')
@@ -1141,12 +1141,12 @@ function populateJavaExecDetails(execPath){
         if(v.valid){
             const vendor = v.vendor != null ? ` (${v.vendor})` : ''
             if(v.version.major < 9) {
-                settingsJavaExecDetails.innerHTML = `Selected: Java ${v.version.major} Update ${v.version.update} (x${v.arch})${vendor}`
+                settingsJavaExecDetails.innerHTML = `Sélectionné: Java ${v.version.major} Update ${v.version.update} (x${v.arch})${vendor}`
             } else {
-                settingsJavaExecDetails.innerHTML = `Selected: Java ${v.version.major}.${v.version.minor}.${v.version.revision} (x${v.arch})${vendor}`
+                settingsJavaExecDetails.innerHTML = `Sélectionné: Java ${v.version.major}.${v.version.minor}.${v.version.revision} (x${v.arch})${vendor}`
             }
         } else {
-            settingsJavaExecDetails.innerHTML = 'Invalid Selection'
+            settingsJavaExecDetails.innerHTML = 'Sélection invalide'
         }
     })
 }
@@ -1197,11 +1197,11 @@ function isPrerelease(version){
 function populateVersionInformation(version, valueElement, titleElement, checkElement){
     valueElement.innerHTML = version
     if(isPrerelease(version)){
-        titleElement.innerHTML = 'Pre-release'
+        titleElement.innerHTML = 'Version Stable'
         titleElement.style.color = '#ff886d'
         checkElement.style.background = '#ff886d'
     } else {
-        titleElement.innerHTML = 'Stable Release'
+        titleElement.innerHTML = 'Version Stable'
         titleElement.style.color = null
         checkElement.style.background = null
     }
@@ -1299,16 +1299,16 @@ function populateSettingsUpdateInformation(data){
                 shell.openExternal(data.darwindownload)
             })
         } else {
-            settingsUpdateButtonStatus('Downloading..', true)
+            settingsUpdateButtonStatus('Téléchargement...', true)
         }
     } else {
-        settingsUpdateTitle.innerHTML = 'You Are Running the Latest Version'
+        settingsUpdateTitle.innerHTML = 'Vous disposez de la dernière version.'
         settingsUpdateChangelogCont.style.display = 'none'
         populateVersionInformation(remote.app.getVersion(), settingsUpdateVersionValue, settingsUpdateVersionTitle, settingsUpdateVersionCheck)
-        settingsUpdateButtonStatus('Check for Updates', false, () => {
+        settingsUpdateButtonStatus('Vérifier les mises à jours...', false, () => {
             if(!isDev){
                 ipcRenderer.send('autoUpdateAction', 'checkForUpdate')
-                settingsUpdateButtonStatus('Checking for Updates..', true)
+                settingsUpdateButtonStatus('Vérification des mises à jours...', true)
             }
         })
     }

@@ -10,7 +10,7 @@ function getCurrentPlatform(){
         case 'linux':
             return Platform.linux
         default:
-            console.error('Cannot resolve current platform!')
+            console.error('Impossible de résoudre la plateforme actuelle!')
             return undefined
     }
 }
@@ -18,10 +18,9 @@ function getCurrentPlatform(){
 builder.build({
     targets: (process.argv[2] != null && Platform[process.argv[2]] != null ? Platform[process.argv[2]] : getCurrentPlatform()).createTarget(),
     config: {
-        appId: 'helioslauncher',
-        productName: 'Helios Launcher',
+        appId: 'shinobispath',
+        productName: 'Shinobi\'s Path',
         artifactName: '${productName}-setup-${version}.${ext}',
-        copyright: 'Copyright © 2018-2020 Daniel Scalzi',
         directories: {
             buildResources: 'build',
             output: 'dist'
@@ -46,10 +45,8 @@ builder.build({
         },
         linux: {
             target: 'AppImage',
-            maintainer: 'Daniel Scalzi',
-            vendor: 'Daniel Scalzi',
-            synopsis: 'Modded Minecraft Launcher',
-            description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.',
+            synopsis: 'Serveur Serious RP',
+            description: 'Shinobi\'s Path est un serveur minecraft Serious roleplay sous whitelist se basant sur l\'univers de naruto',
             category: 'Game'
         },
         compression: 'maximum',
@@ -62,7 +59,7 @@ builder.build({
         asar: true
     }
 }).then(() => {
-    console.log('Build complete!')
+    console.log('L\'application a correctement été formée!')
 }).catch(err => {
-    console.error('Error during build!', err)
+    console.error('Erreur lors de la formation de l\'application', err)
 })

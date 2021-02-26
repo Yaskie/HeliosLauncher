@@ -19,37 +19,37 @@ const statuses = [
     {
         service: 'session.minecraft.net',
         status: 'grey',
-        name: 'Multiplayer Session Service',
+        name: 'Serveurs multijoueurs',
         essential: true
     },
     {
         service: 'authserver.mojang.com',
         status: 'grey',
-        name: 'Authentication Service',
+        name: "Service d'authentifications",
         essential: true
     },
     {
         service: 'textures.minecraft.net',
         status: 'grey',
-        name: 'Minecraft Skins',
+        name: 'Services de skins',
         essential: false
     },
     {
         service: 'api.mojang.com',
         status: 'grey',
-        name: 'Public API',
+        name: 'API',
         essential: false
     },
     {
         service: 'minecraft.net',
         status: 'grey',
-        name: 'Minecraft.net',
+        name: 'Site de minecraft',
         essential: false
     },
     {
         service: 'account.mojang.com',
         status: 'grey',
-        name: 'Mojang Accounts Website',
+        name: 'Site des comptes mojang',
         essential: false
     }
 ]
@@ -96,8 +96,8 @@ exports.status = function(){
             function(error, response, body){
 
                 if(error || response.statusCode !== 200){
-                    logger.warn('Unable to retrieve Mojang status.')
-                    logger.debug('Error while retrieving Mojang statuses:', error)
+                    logger.warn("Impossible de consulter l'état des serveurs mojang")
+                    logger.debug('Une erreur est survenue:', error)
                     //reject(error || response.statusCode)
                     for(let i=0; i<statuses.length; i++){
                         statuses[i].status = 'grey'
@@ -151,7 +151,7 @@ exports.authenticate = function(username, password, clientToken, requestUser = t
             },
             function(error, response, body){
                 if(error){
-                    logger.error('Error during authentication.', error)
+                    logger.error('Une erreur est survenue durant la connexion:', error)
                     reject(error)
                 } else {
                     if(response.statusCode === 200){
@@ -185,7 +185,7 @@ exports.validate = function(accessToken, clientToken){
             },
             function(error, response, body){
                 if(error){
-                    logger.error('Error during validation.', error)
+                    logger.error('Une erreur est survenue durant la validation:', error)
                     reject(error)
                 } else {
                     if(response.statusCode === 403){
@@ -220,7 +220,7 @@ exports.invalidate = function(accessToken, clientToken){
             },
             function(error, response, body){
                 if(error){
-                    logger.error('Error during invalidation.', error)
+                    logger.error("Une erreur est survenue durant l'invalidation", error)
                     reject(error)
                 } else {
                     if(response.statusCode === 204){
@@ -257,7 +257,7 @@ exports.refresh = function(accessToken, clientToken, requestUser = true){
             },
             function(error, response, body){
                 if(error){
-                    logger.error('Error during refresh.', error)
+                    logger.error("Une erreur est survenue durant l'actualisation:", error)
                     reject(error)
                 } else {
                     if(response.statusCode === 200){

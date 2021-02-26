@@ -591,10 +591,10 @@ exports.pullLocal = function(){
 
 exports.setDevMode = function(value){
     if(value){
-        logger.log('Developer mode enabled.')
-        logger.log('If you don\'t know what that means, revert immediately.')
+        logger.log('Le mode développeur a été activé.')
+        logger.log('Si vous ne savez pas ce que cela signifie, il est fortement recommandé que vous le désactiviez immédiatement.')
     } else {
-        logger.log('Developer mode disabled.')
+        logger.log('Le mode développeur a été désactivé.')
     }
     DEV_MODE = value
 }

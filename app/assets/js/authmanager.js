@@ -83,17 +83,17 @@ exports.validateSelected = async function(){
             ConfigManager.updateAuthAccount(current.uuid, session.accessToken)
             ConfigManager.save()
         } catch(err) {
-            logger.debug('Error while validating selected profile:', err)
+            logger.debug('Une erreur est survenue durant la séléction du profil:', err)
             if(err && err.error === 'ForbiddenOperationException'){
                 // What do we do?
             }
-            logger.log('Account access token is invalid.')
+            logger.log("Le token d'accès au compte est invalide.")
             return false
         }
-        loggerSuccess.log('Account access token validated.')
+        loggerSuccess.log("Le token d'accès au compte a été validé.")
         return true
     } else {
-        loggerSuccess.log('Account access token validated.')
+        loggerSuccess.log("Le token d'accès au compte a été validé.")
         return true
     }
 }

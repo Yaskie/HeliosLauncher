@@ -21,7 +21,7 @@ function onDistroLoad(data){
         
         // Resolve the selected server if its value has yet to be set.
         if(ConfigManager.getSelectedServer() == null || data.getServer(ConfigManager.getSelectedServer()) == null){
-            logger.log('Determining default selected server..')
+            logger.log('Sélection du serveur par défaut...')
             ConfigManager.setSelectedServer(data.getMainServer().getID())
             ConfigManager.save()
         }
@@ -31,26 +31,26 @@ function onDistroLoad(data){
 
 // Ensure Distribution is downloaded and cached.
 DistroManager.pullRemote().then((data) => {
-    logger.log('Loaded distribution index.')
+    logger.log('L\'index a bien été chagé.')
 
     onDistroLoad(data)
 
 }).catch((err) => {
-    logger.log('Failed to load distribution index.')
+    logger.log('Erreur lors du chargement de l\'index.')
     logger.error(err)
 
-    logger.log('Attempting to load an older version of the distribution index.')
+    logger.log('Tentative de charger une ancienne version de l\'index...')
     // Try getting a local copy, better than nothing.
     DistroManager.pullLocal().then((data) => {
-        logger.log('Successfully loaded an older version of the distribution index.')
+        logger.log('Une ancienne version de l\'index a bien été chargée.')
 
         onDistroLoad(data)
 
 
     }).catch((err) => {
 
-        logger.log('Failed to load an older version of the distribution index.')
-        logger.log('Application cannot run.')
+        logger.log('Erreur lors du chargement d\'une ancienne version de l\'index.')
+        logger.log('L\'application ne peut pas tourner.')
         logger.error(err)
 
         onDistroLoad(null)
@@ -62,8 +62,8 @@ DistroManager.pullRemote().then((data) => {
 // Clean up temp dir incase previous launches ended unexpectedly. 
 fs.remove(path.join(os.tmpdir(), ConfigManager.getTempNativeFolder()), (err) => {
     if(err){
-        logger.warn('Error while cleaning natives directory', err)
+        logger.warn('Erreur lors du vidage du cache', err)
     } else {
-        logger.log('Cleaned natives directory.')
+        logger.log('Le cache a été vidé.')
     }
 })

@@ -2,21 +2,18 @@
     <div id="settingsContainerLeft">
         <div id="settingsNavContainer">
             <div id="settingsNavHeader">
-                <span id="settingsNavHeaderText">Settings</span>
+                <span id="settingsNavHeaderText">Paramètres</span>
             </div>
             <div id="settingsNavItemsContainer">
                 <div id="settingsNavItemsContent">
-                    <button class="settingsNavItem" rSc="settingsTabAccount" id="settingsNavAccount" selected>Account</button>
+                    <button class="settingsNavItem" rSc="settingsTabAccount" id="settingsNavAccount" selected>Compte</button>
                     <button class="settingsNavItem" rSc="settingsTabMinecraft">Minecraft</button>
                     <button class="settingsNavItem" rSc="settingsTabMods">Mods</button>
                     <button class="settingsNavItem" rSc="settingsTabJava">Java</button>
                     <button class="settingsNavItem" rSc="settingsTabLauncher">Launcher</button>
-                    <div class="settingsNavSpacer"></div>
-                    <button class="settingsNavItem" rSc="settingsTabAbout">About</button>
-                    <button class="settingsNavItem" rSc="settingsTabUpdate" id="settingsNavUpdate">Updates</button>
                     <div id="settingsNavContentBottom">
                         <div class="settingsNavDivider"></div>
-                        <button id="settingsNavDone">Done</button>
+                        <button id="settingsNavDone">Terminé</button>
                     </div>
                 </div>
             </div>
@@ -25,16 +22,16 @@
     <div id="settingsContainerRight">
         <div id="settingsTabAccount" class="settingsTab">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">Account Settings</span>
-                <span class="settingsTabHeaderDesc">Add new accounts or manage existing ones.</span>
+                <span class="settingsTabHeaderText">Paramètres du compte</span>
+                <span class="settingsTabHeaderDesc">Ajoutez un nouveau compte ou sélectionnez-en un déjà existant</span>
             </div>
             <div id="settingsAddAccountContainer">
                 <button id="settingsAddAccount">
-                    <span id="settingsAddAccountText">&#43; Add Account</span>
+                    <span id="settingsAddAccountText">&#43; Ajouter un compte</span>
                 </button>
             </div>
             <div id="settingsCurrentAccountsHeader">
-                <span class="settingsFieldTitle">Current Accounts</span>
+                <span class="settingsFieldTitle">Comptes disponibles:</span>
             </div>
             <div id="settingsCurrentAccounts">
                 <!-- Auth accounts populated here. -->
@@ -42,11 +39,11 @@
         </div>
         <div id="settingsTabMinecraft" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">Minecraft Settings</span>
-                <span class="settingsTabHeaderDesc">Options related to game launch.</span>
+                <span class="settingsTabHeaderText">Paramètres Minecraft</span>
+                <span class="settingsTabHeaderDesc">Les options en rapport au lancement du jeu.</span>
             </div>
             <div id="settingsGameResolutionContainer">
-                <span class="settingsFieldTitle">Game Resolution</span>
+                <span class="settingsFieldTitle">Résolution</span>
                 <div id="settingsGameResolutionContent">
                     <input type="number" id="settingsGameWidth" min="0" cValue="GameWidth">
                     <div id="settingsGameResolutionCross">&#10006;</div>
@@ -55,7 +52,7 @@
             </div>
             <div class="settingsFieldContainer">
                 <div class="settingsFieldLeft">
-                    <span class="settingsFieldTitle">Launch in fullscreen.</span>
+                    <span class="settingsFieldTitle">Lancer en plein écran</span>
                 </div>
                 <div class="settingsFieldRight">
                     <label class="toggleSwitch">
@@ -66,7 +63,7 @@
             </div>
             <div class="settingsFieldContainer">
                 <div class="settingsFieldLeft">
-                    <span class="settingsFieldTitle">Automatically connect to the server on launch.</span>
+                    <span class="settingsFieldTitle">Se connecter automatiquement à Shinobi's Path au lancement</span>
                 </div>
                 <div class="settingsFieldRight">
                     <label class="toggleSwitch">
@@ -77,8 +74,8 @@
             </div>
             <div class="settingsFieldContainer">
                 <div class="settingsFieldLeft">
-                    <span class="settingsFieldTitle">Launch game process detached from launcher.</span>
-                    <span class="settingsFieldDesc">If the game is not detached, closing the launcher will also close the game.</span>
+                    <span class="settingsFieldTitle">Lancer minecraft indépendamment du launcher</span>
+                    <span class="settingsFieldDesc">Si le jeu n'est pas lancé indépendamment du launcher, fermer celui-ci fermera aussi minecraft.</span>
                 </div>
                 <div class="settingsFieldRight">
                     <label class="toggleSwitch">
@@ -90,8 +87,8 @@
         </div>
         <div id="settingsTabMods" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">Mod Settings</span>
-                <span class="settingsTabHeaderDesc">Enable or disable mods.</span>
+                <span class="settingsTabHeaderText">Paramètres des Mods</span>
+                <span class="settingsTabHeaderDesc">Activer ou désactiver des Mods</span>
             </div>
             <div id="settingsSelServContainer">
                 <div id="settingsSelServContent">
@@ -99,37 +96,37 @@
                 </div>
                 <div id="settingsSwitchServerContainer">
                     <div id="settingsSwitchServerContent">
-                        <button id="settingsSwitchServerButton">Switch</button>
+                        <button id="settingsSwitchServerButton">Changer</button>
                     </div>
                 </div>
             </div>
             <div id="settingsModsContainer">
                 <div id="settingsReqModsContainer">
-                    <div class="settingsModsHeader">Required Mods</div>
+                    <div class="settingsModsHeader">Mods obligatoires</div>
                     <div id="settingsReqModsContent">
 
                     </div>
                 </div>
                 <div id="settingsOptModsContainer">
-                    <div class="settingsModsHeader">Optional Mods</div>
+                    <div class="settingsModsHeader">Mods optionnels</div>
                     <div id="settingsOptModsContent">
                         
                     </div>
                 </div>
                 <div id="settingsDropinModsContainer">
-                    <div class="settingsModsHeader">Drop-in Mods</div>
-                    <button id="settingsDropinFileSystemButton">+ Add Mods <span id="settingsDropinRefreshNote">(F5 to Refresh)</span></button>
+                    <div class="settingsModsHeader">Ajouter un Mod</div>
+                    <button id="settingsDropinFileSystemButton">+ Ajouter un mod <span id="settingsDropinRefreshNote">(F5 pour recharger)</span></button>
                     <div id="settingsDropinModsContent">
                         
                     </div>
                 </div>
                 <div id="settingsShadersContainer">
-                    <div class="settingsModsHeader">Shaderpacks</div>
-                    <div id="settingsShaderpackDesc">Enable or disable shaders. Please note, shaders will only run smoothly on powerful setups. You may add custom packs here.</div>
+                    <div class="settingsModsHeader">Packs de shaders</div>
+                    <div id="settingsShaderpackDesc">Activer ou désactiver les shaders, qui améliorent grandement les graphismes du jeu. Faites attention, ceux-ci nécessitent une bonne configuration, les systèmes les moins performants auront de gros problèmes en utilisant ceux-ci.</div>
                     <div id="settingsShaderpackWrapper">
                         <button id="settingsShaderpackButton"> + </button>
                         <div class="settingsSelectContainer">
-                            <div class="settingsSelectSelected" id="settingsShadersSelected">Select Shaderpack</div>
+                            <div class="settingsSelectSelected" id="settingsShadersSelected">Sélectionner un pack de shaders</div>
                             <div class="settingsSelectOptions" id="settingsShadersOptions" hidden>
 
                             </div>
@@ -140,15 +137,15 @@
         </div>
         <div id="settingsTabJava" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">Java Settings</span>
-                <span class="settingsTabHeaderDesc">Manage the Java configuration (advanced).</span>
+                <span class="settingsTabHeaderText">Paramètres Java</span>
+                <span class="settingsTabHeaderDesc">Modifier la configuration Java</span>
             </div>
             <div id="settingsMemoryContainer">
-                <div id="settingsMemoryTitle">Memory</div>
+                <div id="settingsMemoryTitle">Mémoire</div>
                 <div id="settingsMemoryContent">
                     <div id="settingsMemoryContentLeft">
                         <div class="settingsMemoryContentItem">
-                            <span class="settingsMemoryHeader">Maximum RAM</span>
+                            <span class="settingsMemoryHeader">RAM Maximum</span>
                             <div class="settingsMemoryActionContainer">
                                 <div id="settingsMaxRAMRange" class="rangeSlider" cValue="MaxRAM" min="3" max="8" value="3" step="0.5">
                                     <div class="rangeSliderBar"></div>
@@ -158,7 +155,7 @@
                             </div>
                         </div>
                         <div class="settingsMemoryContentItem">
-                            <span class="settingsMemoryHeader">Minimum RAM</span>
+                            <span class="settingsMemoryHeader">RAM Minimum</span>
                             <div class="settingsMemoryActionContainer">
                                 <div id="settingsMinRAMRange" class="rangeSlider" cValue="MinRAM" min="3" max="8" value="3" step="0.5">
                                     <div class="rangeSliderBar"></div>
@@ -167,7 +164,7 @@
                                 <span id="settingsMinRAMLabel" class="settingsMemoryLabel">3G</span>
                             </div>
                         </div>
-                        <div id="settingsMemoryDesc">The recommended minimum RAM is 3 gigabytes. Setting the minimum and maximum values to the same value may reduce lag.</div>
+                        <div id="settingsMemoryDesc">Il est recommandé d'allouer au moins 3GO de RAM minimum. Si vous avez des problèmes de lags, essayez de définir les mêmes valeurs de RAM alloué minimales et maximales.</div>
                     </div>
                     <div id="settingsMemoryContentRight">
                         <div id="settingsMemoryStatus">
@@ -176,7 +173,7 @@
                                 <span id="settingsMemoryTotal" class="settingsMemoryStatusValue">16G</span>
                             </div>
                             <div class="settingsMemoryStatusContainer">
-                                <span class="settingsMemoryStatusTitle">Available</span>
+                                <span class="settingsMemoryStatusTitle">Disponible</span>
                                 <span id="settingsMemoryAvail" class="settingsMemoryStatusValue">7.3G</span>
                             </div>
                         </div>
@@ -184,9 +181,9 @@
                 </div>
             </div>
             <div class="settingsFileSelContainer">
-                <div class="settingsFileSelTitle">Java Executable</div>
+                <div class="settingsFileSelTitle">Version Java</div>
                 <div class="settingsFileSelContent">
-                    <div id="settingsJavaExecDetails">Selected: Java 8 Update 172 (x64)</div>
+                    <div id="settingsJavaExecDetails">Sélectionnée: Java 8 Update 172 (x64)</div>
                     <div class="settingsFileSelActions">
                         <div class="settingsFileSelIcon">
                             <svg class="settingsFileSelSVG" x="0px" y="0px" viewBox="0 0 305.001 305.001">
@@ -203,13 +200,13 @@
                             </svg>
                         </div>
                         <input class="settingsFileSelVal" id="settingsJavaExecVal" type="text" value="null" cValue="JavaExecutable" disabled>
-                        <button class="settingsFileSelButton" id="settingsJavaExecSel" dialogTitle="Select Java Executable" dialogDirectory="false">Choose File</button>
+                        <button class="settingsFileSelButton" id="settingsJavaExecSel" dialogTitle="Sélectionner un exécutable Java" dialogDirectory="false">Choisir un fichier</button>
                     </div>
                 </div>
-                <div class="settingsFileSelDesc">The Java executable is validated before game launch. <strong>Requires Java 8 x64.</strong><br>The path should end with <strong>bin<%= process.platform === 'win32' ? '\\javaw.exe' : '/java' %></strong>.</div>
+                <div class="settingsFileSelDesc">La version de Java est validée avant le lancement du jeu. <strong>Java 8 64bits est requis. </strong><br>Le chemin d'accès à celui-ci devrait ressembler à: <strong>bin<%= process.platform === 'win32' ? '\\javaw.exe' : '/java' %></strong>.</div>
             </div>
             <div id="settingsJVMOptsContainer">
-                <div id="settingsJVMOptsTitle">Additional JVM Options</div>
+                <div id="settingsJVMOptsTitle">Options JVM</div>
                 <div id="settingsJVMOptsContent">
                     <div class="settingsFileSelIcon">
                         <svg class="settingsFileSelSVG" x="0px" y="0px" viewBox="0 0 305.001 305.001">
@@ -227,18 +224,18 @@
                     </div>
                     <input id="settingsJVMOptsVal" cValue="JVMOptions" type="text">
                 </div>
-                <div id="settingsJVMOptsDesc">Options to be provided to the JVM at runtime. <em>-Xms</em> and <em>-Xmx</em> should not be included.<br><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/<%= process.platform === 'win32' ? 'windows' : 'unix' %>/java.html">Available Options for Java 8</a>.</div>
+                <div id="settingsJVMOptsDesc">Les options saisies seront prises en compte par le JVM au lancement. Les options <em>-Xms</em> and <em>-Xmx</em> (qui permette de modifier l'allocation de ram) ne sont pas à inclure, vu qu'elles sont modifiables plus haut.<br><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/<%= process.platform === 'win32' ? 'windows' : 'unix' %>/java.html">Aide à l'écriture du JVM</a>.</div>
             </div>
         </div>
         <div id="settingsTabLauncher" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">Launcher Settings</span>
-                <span class="settingsTabHeaderDesc">Options related to the launcher itself.</span>
+                <span class="settingsTabHeaderText">Paramètres du Launcher</span>
+                <span class="settingsTabHeaderDesc">Options ayant un rapport direct avec le launcher lui-même.</span>
             </div>
             <div class="settingsFieldContainer">
                 <div class="settingsFieldLeft">
-                    <span class="settingsFieldTitle">Allow Pre-Release Updates.</span>
-                    <span class="settingsFieldDesc">Pre-Releases include new features which may have not been fully tested or integrated.<br>This will always be true if you are using a pre-release version.</span>
+                    <span class="settingsFieldTitle">Autoriser les mises à jour instables.</span>
+                    <span class="settingsFieldDesc">Les mises à jour instables contiennent des nouvelles fonctionnalités qui peuvent être instables et causer des problèmes de crash.<br>Cette option sera activée de force si vous utilisez une version instable.</span>
                 </div>
                 <div class="settingsFieldRight">
                     <label class="toggleSwitch">
@@ -249,7 +246,7 @@
             </div>
             <div class="settingsFileSelContainer">
                 <div class="settingsFileSelContent">
-                    <div class="settingsFieldTitle" id="settingsDataDirTitle">Data Directory</div>
+                    <div class="settingsFieldTitle" id="settingsDataDirTitle">Répertoire du jeu</div>
                     <div class="settingsFileSelActions">
                         <div class="settingsFileSelIcon">
                             <svg class="settingsFileSelSVG">
@@ -261,27 +258,27 @@
                             </svg>
                         </div>
                         <input class="settingsFileSelVal" type="text" value="null" cValue="DataDirectory" disabled>
-                        <button class="settingsFileSelButton" dialogTitle="Select Data Directory" dialogDirectory="true">Choose Folder</button>
+                        <button class="settingsFileSelButton" dialogTitle="Sélectionner un dossier" dialogDirectory="true">Choisir un dossier</button>
                     </div>
                 </div>
-                <div class="settingsFileSelDesc">All game files and local Java installations will be stored in the data directory.<br>Screenshots and world saves are stored in the instance folder for the corresponding server configuration.</div>
+                <div class="settingsFileSelDesc">Les fichiers du jeu et installations Java seront sauvegardées dans le répertoire du jeu.<br>Les screenshots, mondes et autres seront sauvegardés dans le dossier "instance" correspondant au serveur.</div>
             </div>
         </div>
         <div id="settingsTabAbout" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">About</span>
-                <span class="settingsTabHeaderDesc">View information and release notes for the current version.</span>
+                <span class="settingsTabHeaderText">À propos</span>
+                <span class="settingsTabHeaderDesc">Consulter les informations et les notes de mises à jour concernant la version actuelle.</span>
             </div>
             <div id="settingsAboutCurrentContainer">
                 <div id="settingsAboutCurrentContent">
                     <div id="settingsAboutCurrentHeadline">
                         <img id="settingsAboutLogo" src="./assets/images/SealCircle.png">
-                        <span id="settingsAboutTitle">Helios Launcher</span>
+                        <span id="settingsAboutTitle">Shinobi's Path</span>
                     </div>
                     <div id="settingsAboutCurrentVersion">
                         <div id="settingsAboutCurrentVersionCheck">&#10003;</div>
                         <div id="settingsAboutCurrentVersionDetails">
-                            <span id="settingsAboutCurrentVersionTitle">Stable Release</span>
+                            <span id="settingsAboutCurrentVersionTitle">Version à jour</span>
                             <div id="settingsAboutCurrentVersionLine">
                                 <span id="settingsAboutCurrentVersionText">Version </span>
                                 <span id="settingsAboutCurrentVersionValue">0.0.1-alpha.12</span>
@@ -290,42 +287,27 @@
                     </div>
                 </div>
                 <div id="settingsAboutButtons">
-                    <a href="https://github.com/dscalZi/HeliosLauncher" id="settingsAboutSourceButton" class="settingsAboutButton">Source (GitHub)</a>
+                    <a href="http://discord.shinobis-path.ovh" id="settingsAboutSourceButton" class="settingsAboutButton">Discord</a>
                     <!-- The following must be included in third-party usage. -->
                     <!-- <a href="https://github.com/dscalzi/HeliosLauncher" id="settingsAboutSourceButton" class="settingsAboutButton">Original Source</a> -->
-                    <a href="https://github.com/dscalZi/HeliosLauncher/issues" id="settingsAboutSupportButton" class="settingsAboutButton">Support</a>
-                    <a href="#" id="settingsAboutDevToolsButton" class="settingsAboutButton">DevTools Console</a>
-                </div>
-            </div>
-            <div class="settingsChangelogContainer">
-                <div class="settingsChangelogContent">
-                    <div class="settingsChangelogHeadline">
-                        <div class="settingsChangelogLabel">Release Notes</div>
-                        <div class="settingsChangelogTitle">Changelog</div>
-                    </div>
-                    <div class="settingsChangelogText">
-                        No Release Notes
-                    </div>
-                </div>
-                <div class="settingsChangelogActions">
-                    <a class="settingsChangelogButton settingsAboutButton" href="#">View Release Notes on GitHub</a>
+                    <a href="#" id="settingsAboutDevToolsButton" class="settingsAboutButton">Console de développeurs</a>
                 </div>
             </div>
         </div>
         <div id="settingsTabUpdate" class="settingsTab" style="display: none;">
             <div class="settingsTabHeader">
-                <span class="settingsTabHeaderText">Launcher Updates</span>
-                <span class="settingsTabHeaderDesc">Download, install, and review updates for the launcher.</span>
+                <span class="settingsTabHeaderText">Mises à jour du launcher</span>
+                <span class="settingsTabHeaderDesc">Téléchargez, installez, et consultez les dernières versions disponibles du launcher.</span>
             </div>
             <div id="settingsUpdateStatusContainer">
                 <div id="settingsUpdateStatusContent">
                     <div id="settingsUpdateStatusHeadline">
-                        <span id="settingsUpdateTitle">You Are Running the Latest Version</span>
+                        <span id="settingsUpdateTitle">Votre launcher est à jour</span>
                     </div>
                     <div id="settingsUpdateVersion">
                         <div id="settingsUpdateVersionCheck">&#10003;</div>
                         <div id="settingsUpdateVersionDetails">
-                            <span id="settingsUpdateVersionTitle">Stable Release</span>
+                            <span id="settingsUpdateVersionTitle">Version à jour</span>
                             <div id="settingsUpdateVersionLine">
                                 <span id="settingsUpdateVersionText">Version </span>
                                 <span id="settingsUpdateVersionValue">0.0.1-alpha.18</span>
@@ -333,18 +315,18 @@
                         </div>
                     </div>
                     <div id="settingsUpdateActionContainer">
-                        <button id="settingsUpdateActionButton">Check for Updates</button>
+                        <button id="settingsUpdateActionButton">Vérifier les mises à jour</button>
                     </div>
                 </div>
             </div>
             <div class="settingsChangelogContainer">
                 <div class="settingsChangelogContent">
                     <div class="settingsChangelogHeadline">
-                        <div class="settingsChangelogLabel">What's New</div>
-                        <div class="settingsChangelogTitle">Update Release Notes</div>
+                        <div class="settingsChangelogLabel">Changements:</div>
+                        <div class="settingsChangelogTitle">Notes de mises à jour</div>
                     </div>
                     <div class="settingsChangelogText">
-                        No Release Notes
+                        Aucun note de mise à jour.
                     </div>
                 </div>
             </div>

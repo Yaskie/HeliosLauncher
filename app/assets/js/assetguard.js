@@ -190,7 +190,7 @@ class Util {
             return false
 
         } catch(err) {
-            throw new Error('Forge version is complex (changed).. launcher requires a patch.')
+            throw new Error('La version de forge a été corrompue. Le launcher requiert une réparation.')
         }
     }
 
@@ -1192,7 +1192,7 @@ class AssetGuard extends EventEmitter {
                     }
                 }
                 //We didn't find forge's version.json.
-                reject('Unable to finalize Forge processing, version.json not found! Has forge changed their format?')
+                reject("Le fichier \"version.json\" dans le chemin d'accès à forge n'a pas été trouvé. Le problème est probablement du à un changement d'extension.")
             })
         })
     }
@@ -1539,7 +1539,7 @@ class AssetGuard extends EventEmitter {
                                 return
                             }
                         }
-                        reject('No forge version manifest found!')
+                        reject("Aucune version de forge n'a été trouvée!")
                         return
                     } else {
                         let obArtifact = ob.getArtifact()
@@ -1555,7 +1555,7 @@ class AssetGuard extends EventEmitter {
                     }
                 }
             }
-            reject('No forge module found!')
+            reject('Les modules de forge sont introuvables!')
         })
     }
 
@@ -1776,7 +1776,7 @@ class AssetGuard extends EventEmitter {
                         const contentLength = parseInt(resp.headers['content-length'])
 
                         if(contentLength !== asset.size){
-                            console.log(`WARN: Got ${contentLength} bytes for ${asset.id}: Expected ${asset.size}`)
+                            console.log(`AVERTISSEMENT: ${contentLength} bytes pour ${asset.id}: != ${asset.size}`)
                             doHashCheck = true
 
                             // Adjust download
@@ -1793,9 +1793,9 @@ class AssetGuard extends EventEmitter {
                             if(doHashCheck){
                                 const v = AssetGuard._validateLocal(asset.to, asset.type != null ? 'md5' : 'sha1', asset.hash)
                                 if(v){
-                                    console.log(`Hashes match for ${asset.id}, byte mismatch is an issue in the distro index.`)
+                                    console.log(`Les Hashes correspondent à ${asset.id}.`)
                                 } else {
-                                    console.error(`Hashes do not match, ${asset.id} may be corrupted.`)
+                                    console.error(`Les Hashes ne correspondent pas à, ${asset.id} ils sont probablement corrompus.`)
                                 }
                             }
 
@@ -1807,7 +1807,7 @@ class AssetGuard extends EventEmitter {
                     } else {
 
                         req.abort()
-                        console.log(`Failed to download ${asset.id}(${typeof asset.from === 'object' ? asset.from.url : asset.from}). Response code ${resp.statusCode}`)
+                        console.log(`Le téléchargement de ${asset.id}(${typeof asset.from === 'object' ? asset.from.url : asset.from}) a échoué. Code: ${resp.statusCode}`)
                         self.progress += asset.size*1
                         self.emit('progress', 'download', self.progress, self.totaldlsize)
                         cb()
@@ -1828,9 +1828,9 @@ class AssetGuard extends EventEmitter {
             }, (err) => {
 
                 if(err){
-                    console.log('An item in ' + identifier + ' failed to process')
+                    console.log('Un objet dans ' + identifier + ' n\'a pas réussi à aboutir.')
                 } else {
-                    console.log('All ' + identifier + ' have been processed successfully')
+                    console.log('Tous les ' + identifier + ' ont procédés avec succès!')
                 }
 
                 //self.totaldlsize -= dlTracker.dlsize
